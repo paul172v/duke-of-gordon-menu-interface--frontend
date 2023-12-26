@@ -1,0 +1,27 @@
+@import "./base";
+
+@mixin box-styling {
+  background-color: $box-color;
+  color: $color-primary;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+@mixin gradient-green {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(28, 74, 28),
+    rgb(75, 97, 75)
+  );
+}
+
+@mixin gradient-purple {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(115, 57, 142, 0.9),
+    rgb(58, 25, 99, 0.9)
+  );
+}

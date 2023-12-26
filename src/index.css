@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.body,
+link {
+  font-family: "Cormorant Garamond", serif;
+}
+
+p {
+  font-weight: 400;
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+button,
+label {
+  font-family: "Vollkorn", serif;
+}
+
+/* Headings - font-family: "Vollkorn", serif;  - 400, 400i*/
+/* Regular Font - font-family: "Cormorant Garamond", serif - light300i, regular400i; */

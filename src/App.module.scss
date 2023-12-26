@@ -1,0 +1,10 @@
+@import "./sass/base";
+@import "./sass/mixins";
+
+.background {
+  min-height: 100svh;
+  background-image: url("background2.svg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

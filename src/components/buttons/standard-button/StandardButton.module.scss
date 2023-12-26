@@ -1,0 +1,27 @@
+@import "../../../sass/base";
+
+.button {
+  background-color: transparent;
+  background-color: $color-primary;
+  color: $color-font-primary;
+  border: none;
+  font-size: 2rem;
+  margin: 0 2rem;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+  transition: background-color 0.5s, color 0.75s;
+  -webkit-transition: background-color 0.5s, color 0.75s;
+  -moz-transition: background-color 0.5s, color 0.75s;
+  -ms-transition: background-color 0.5s, color 0.75s;
+  -o-transition: background-color 0.5s, color 0.75s;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: $color-secondary;
+  color: $color-tertiary;
+}

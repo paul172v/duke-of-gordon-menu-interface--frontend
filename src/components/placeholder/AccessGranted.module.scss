@@ -1,0 +1,18 @@
+.box {
+  min-height: 20rem;
+  width: 40rem;
+  background-color: greenyellow;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  font-size: 4rem;
+}
