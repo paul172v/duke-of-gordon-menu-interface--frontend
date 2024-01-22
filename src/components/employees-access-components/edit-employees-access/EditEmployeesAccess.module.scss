@@ -1,0 +1,100 @@
+@import "../../../sass/base";
+@import "../../../sass/mixins";
+
+.box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 8rem;
+  min-height: 18rem;
+  width: 108rem;
+  max-width: 90vw;
+  @include gradient-box;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
+  z-index: 9999;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  overflow-y: scroll;
+}
+
+.heading {
+  color: $color-font-primary;
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.u-row {
+  display: flex;
+  align-items: center;
+}
+
+.u-row:last-of-type {
+  margin-top: 2rem;
+}
+
+.para {
+  font-size: 2rem;
+  color: $color-font-primary;
+  margin-top: 1rem;
+}
+
+.select {
+  transform: translateY(0.5rem);
+  margin-left: 1rem;
+  background-color: $color-primary;
+  color: $color-font-primary;
+  font-size: 1.6rem;
+  padding-left: 1rem;
+  grid-column: 2/3;
+  -webkit-transform: translateY(0.5rem);
+  -moz-transform: translateY(0.5rem);
+  -ms-transform: translateY(0.5rem);
+  -o-transform: translateY(0.5rem);
+}
+
+.submit-btn {
+  background-color: transparent;
+  background-color: $color-primary;
+  color: $color-font-primary;
+  font-family: "Vollkorn", serif;
+  border: none;
+  font-size: 2rem;
+  margin: 0 2rem;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+  transition: background-color 0.5s, color 0.75s;
+  -webkit-transition: background-color 0.5s, color 0.75s;
+  -moz-transition: background-color 0.5s, color 0.75s;
+  -ms-transition: background-color 0.5s, color 0.75s;
+  -o-transition: background-color 0.5s, color 0.75s;
+}
+
+.submit-btn:hover {
+  cursor: pointer;
+  background-color: $color-secondary;
+  color: $color-tertiary;
+}

@@ -2,8 +2,14 @@ import React from "react";
 
 import classes from "./StandardButton.module.scss";
 
-const StandardButton: React.FC<{ label: string }> = (props) => {
-  return <button className={classes.button}>{props.label}</button>;
+const StandardButton: React.FC<{ label: string; function: () => void }> = (
+  props
+) => {
+  return (
+    <button className={classes.button} onClick={props.function}>
+      {props.label}
+    </button>
+  );
 };
 
 export default StandardButton;

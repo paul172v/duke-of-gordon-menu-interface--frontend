@@ -2,9 +2,9 @@
 @import "../../sass/mixins";
 
 .box {
-  min-height: 18rem;
-  width: 40rem;
-  @include gradient-purple;
+  min-height: 50rem;
+  width: 50rem;
+  @include gradient-box--from-bottom;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -14,19 +14,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 4rem;
 }
 
-.heading {
-  color: $color-font-primary;
-  text-align: center;
-  font-size: 2.6rem;
-  margin: 3rem 0 1rem 0;
-  line-height: 4rem;
+.logo {
+  width: 40rem;
+  background-color: rgb(255, 255, 255);
+  padding: 2rem 1rem;
 }
 
 .sub-heading {
-  margin: 1rem;
+  background-color: white;
+  padding: 2rem 0;
+  transform: translateY(-5rem);
+  width: 40rem;
+  text-align: center;
+  -webkit-transform: translateY(-5rem);
+  -moz-transform: translateY(-5rem);
+  -ms-transform: translateY(-5rem);
+  -o-transform: translateY(-5rem);
 }
 
 .buttons-wrapper {

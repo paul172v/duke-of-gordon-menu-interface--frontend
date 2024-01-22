@@ -4,7 +4,7 @@
 .box {
   min-height: 24rem;
   width: 40rem;
-  @include gradient-purple;
+  @include gradient-box;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -34,7 +34,7 @@
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 2rem 2rem;
+  grid-template-rows: 2rem 2rem auto 2rem 2rem 1rem 2rem;
   gap: 1rem 0;
 
   input {
@@ -58,12 +58,51 @@
   font-size: 2rem;
   text-align: center;
   margin-bottom: 2rem;
+  grid-column: 1/3;
+  grid-row: 3/4;
 }
 
 .buttons-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  grid-column: 1/3;
+  grid-row: 5/6;
+}
+
+#submit-button {
+  background-color: transparent;
+  background-color: $color-primary;
+  color: $color-font-primary;
+  font-family: "Vollkorn", serif;
+  border: none;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  -webkit-border-radius: 14px;
+  -moz-border-radius: 14px;
+  -ms-border-radius: 14px;
+  -o-border-radius: 14px;
+  transition: background-color 0.5s, color 0.75s;
+  -webkit-transition: background-color 0.5s, color 0.75s;
+  -moz-transition: background-color 0.5s, color 0.75s;
+  -ms-transition: background-color 0.5s, color 0.75s;
+  -o-transition: background-color 0.5s, color 0.75s;
+}
+
+#submit-button:hover {
+  cursor: pointer;
+  background-color: $color-secondary;
+  color: $color-tertiary;
+}
+
+.forgot-password-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  grid-column: 1/3;
+  grid-row: 7/8;
 }
 
 .forgot-password {
@@ -84,5 +123,5 @@
 
 .forgot-password:hover {
   color: $color-font-primary;
-  cursor: url("pointer.svg"), auto;
+  cursor: pointer;
 }

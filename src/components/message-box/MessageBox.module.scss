@@ -4,7 +4,7 @@
 .box {
   min-height: 24rem;
   width: 40rem;
-  @include gradient-purple;
+  @include gradient-box;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -24,11 +24,19 @@
   margin-top: 2rem;
 }
 
-.message {
-  color: $color-font-error;
+.message,
+.error-message {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 2rem;
   margin-top: 2rem;
   padding-bottom: 1rem;
+}
+
+.message {
+  color: $color-font-primary;
+}
+
+.error-message {
+  color: $color-font-error;
 }

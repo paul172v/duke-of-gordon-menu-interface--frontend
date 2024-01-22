@@ -1,0 +1,40 @@
+@import "../../sass/base";
+@import "../../sass/mixins";
+
+.page {
+  padding-bottom: 8rem;
+}
+
+.box {
+  margin-top: 8rem;
+  min-height: 18rem;
+  width: 108rem;
+  max-width: 90vw;
+  @include gradient-box;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+.heading {
+  color: $color-font-primary;
+  text-align: center;
+  font-size: 2.6rem;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: $modal-background-color;
+  z-index: 9900;
+}

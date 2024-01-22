@@ -1,0 +1,62 @@
+@import "../../../../sass/base";
+@import "../../../../sass/mixins";
+
+.box {
+  margin-top: 8rem;
+  min-height: 18rem;
+  width: 108rem;
+  max-width: 90vw;
+  @include gradient-box--from-bottom;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
+}
+
+.heading {
+  color: $color-font-primary;
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+
+.u-row {
+  display: flex;
+  align-items: center;
+}
+
+.u-gap {
+  margin-top: 2rem;
+}
+
+.option,
+.setting {
+  color: $color-font-primary;
+}
+
+.option {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.setting,
+.setting-true,
+.setting-false {
+  font-size: 2.4rem;
+  margin-left: 1.5rem;
+}
+
+.setting-true {
+  color: rgb(7, 211, 7);
+}
+
+.setting-false {
+  color: red;
+}

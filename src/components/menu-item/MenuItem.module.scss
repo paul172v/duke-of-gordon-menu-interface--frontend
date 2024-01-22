@@ -1,0 +1,8 @@
+.grid-wrapper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 5fr 2fr 6fr 2fr 2fr;
+  grid-template-rows: 4rem;
+  gap: 0 1rem;
+  padding: 0 2rem;
+}

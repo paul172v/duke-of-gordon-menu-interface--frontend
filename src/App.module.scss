@@ -3,8 +3,10 @@
 
 .background {
   min-height: 100svh;
-  background-image: url("background2.svg");
+  background-color: black;
+  background-image: url("/public/background.svg"); /// For React-Router the file path must be specified otherwise the image will not properly load on all routes
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

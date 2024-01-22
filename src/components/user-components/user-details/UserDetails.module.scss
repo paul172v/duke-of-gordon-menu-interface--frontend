@@ -1,0 +1,83 @@
+@import "../../../sass/base";
+@import "../../../sass/mixins";
+
+.box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 8rem;
+  min-height: 18rem;
+  width: 108rem;
+  max-width: 90vw;
+  @include gradient-box;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
+  z-index: 9999;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  overflow-y: scroll;
+}
+
+.heading {
+  color: $color-font-primary;
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+}
+
+.user-details-wrapper {
+  margin-top: -2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.u-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+  color: white;
+}
+
+.u-row:last-of-type {
+  margin-top: 4rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.label {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: end;
+}
+
+.details {
+  font-size: 2rem;
+  margin-left: 1rem;
+}
+
+.label-faded,
+.details-faded {
+  font-size: 2rem;
+  color: $color-font-primary-faded;
+}
+
+.label-faded {
+  font-weight: 700;
+}
+
+.details-faded {
+  margin-left: 1rem;
+}

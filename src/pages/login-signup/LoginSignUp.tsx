@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import classes from "./LoginSignUp.module.scss";
 
 import StandardButton from "../../components/buttons/standard-button/StandardButton";
@@ -7,14 +9,19 @@ import StandardButton from "../../components/buttons/standard-button/StandardBut
 const LoginSignup: React.FC = () => {
   return (
     <div className={classes.box}>
-      <h1 className={classes["heading"]}>
-        Duke of Gordon Hotel
-        <br />
-        Menu Interface Form
-      </h1>
+      <img
+        className={classes.logo}
+        src="dog_logo.png"
+        alt="duke of gordon hotel"
+      />
+      <h1 className={classes["sub-heading"]}>Menu Interface Form</h1>
       <div className={classes["buttons-wrapper"]}>
-        <StandardButton label="Login" />
-        <StandardButton label="Sign Up" />
+        <Link to="/login">
+          <StandardButton label="Login" function={() => {}} />
+        </Link>
+        <Link to="/sign-up">
+          <StandardButton label="Sign Up" function={() => {}} />
+        </Link>
       </div>
     </div>
   );

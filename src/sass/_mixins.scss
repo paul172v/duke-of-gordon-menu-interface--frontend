@@ -10,18 +10,60 @@
   -o-border-radius: 4px;
 }
 
-@mixin gradient-green {
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(28, 74, 28),
-    rgb(75, 97, 75)
-  );
-}
-
-@mixin gradient-purple {
+@mixin gradient-box {
   background-image: linear-gradient(
     to bottom,
-    rgb(115, 57, 142, 0.9),
-    rgb(58, 25, 99, 0.9)
+    rgba(87, 87, 87, 1),
+    rgba(28, 28, 28, 1)
+  );
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@mixin gradient-box--from-bottom {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(87, 87, 87, 1),
+    rgba(28, 28, 28, 1)
+  );
+  animation-name: fadeInMoveUp;
+  animation-duration: 1.5s;
+}
+
+@keyframes fadeInMoveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh);
+    -webkit-transform: translateY(100vh);
+    -moz-transform: translateY(100vh);
+    -ms-transform: translateY(100vh);
+    -o-transform: translateY(100vh);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+}
+
+@mixin gradient-box--static {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(87, 87, 87, 1),
+    rgba(28, 28, 28, 1)
   );
 }
