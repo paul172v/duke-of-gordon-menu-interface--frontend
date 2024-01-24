@@ -78,7 +78,6 @@ const SignUp: React.FC<T> = (props) => {
       !password ||
       password.length === 0 ||
       !passwordConfirm ||
-      passwordConfirm.length === 0 ||
       password !== passwordConfirm
     ) {
       setFormInvalid(true);
@@ -138,7 +137,10 @@ const SignUp: React.FC<T> = (props) => {
         <h2 className={classes.heading}>Sign Up</h2>
       </div>
       <div className={classes["form-wrapper"]}>
-        <form className={classes.form} onSubmit={submitHandler}>
+        <form
+          className={!formInvalid ? classes.form : classes["form-error"]}
+          onSubmit={submitHandler}
+        >
           <label className={classes.label} htmlFor="firstName">
             First Name
           </label>
@@ -158,7 +160,12 @@ const SignUp: React.FC<T> = (props) => {
           <label className={classes.label} htmlFor="password">
             Password
           </label>
-          <input type="password" name="password" ref={inputPassword} />
+          <input
+            id={classes["password-confirm"]}
+            type="password"
+            name="password"
+            ref={inputPassword}
+          />
           <label className={classes.label} htmlFor="password-confirm">
             Password Confirm
           </label>
@@ -170,7 +177,13 @@ const SignUp: React.FC<T> = (props) => {
           {formInvalid && (
             <p className={classes["error-message"]}>{validationMessage}</p>
           )}
-          <div className={classes["buttons-wrapper"]}>
+          <div
+            className={
+              !formInvalid
+                ? classes["buttons-wrapper"]
+                : classes["buttons-wrapper-error"]
+            }
+          >
             <input
               type="submit"
               value="Create Account"

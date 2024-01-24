@@ -81,3 +81,20 @@
 .details-faded {
   margin-left: 1rem;
 }
+
+@media (max-width: 480px) {
+  .user-details-wrapper {
+    width: 100%;
+  }
+  .u-row:last-of-type {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 7.5%;
+  }
+
+  .u-row button {
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+}

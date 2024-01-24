@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import classes from "./Header.module.scss";
 
@@ -33,6 +34,7 @@ interface User {
 const Header: React.FC<T> = (props) => {
   const [modalActive, setModalActive] = useState(false);
   const [modalType, setModalType] = useState<string | null>(null);
+  const [mobileHeaderActive, toggleMobileHeaderActive] = useState(false);
 
   //// User Details
   const [userDetails, setUserDetails] = useState<User | null>(null);
@@ -42,6 +44,10 @@ const Header: React.FC<T> = (props) => {
     document.cookie = `jwt=null`;
     props.onSetEmail(null);
     props.onSetRole(null);
+  };
+
+  const toggleMobileHeaderActiveHandler = () => {
+    toggleMobileHeaderActive(!mobileHeaderActive);
   };
 
   const turnOnModalUserDetailsHandler = () => {
@@ -95,6 +101,45 @@ const Header: React.FC<T> = (props) => {
           </Link>
         </div>
       </header>
+
+      {mobileHeaderActive === false && (
+        <header className={classes["header-mobile--closed"]}>
+          <button
+            className={classes["btn-open-header-mobile"]}
+            onClick={toggleMobileHeaderActiveHandler}
+          >
+            <GiHamburgerMenu />
+          </button>
+        </header>
+      )}
+
+      {mobileHeaderActive === true && (
+        <header className={classes["header-mobile--open"]}>
+          <div className={classes["close-header-mobile-wrapper"]}>
+            <button
+              className={classes["btn-close-header-mobile"]}
+              onClick={toggleMobileHeaderActiveHandler}
+            >
+              X
+            </button>
+          </div>
+          <img
+            className={classes["logo-mobile"]}
+            src="dog_logo.png"
+            alt="Duke of Gordon Hotel"
+          />
+          <nav className={classes.nav}></nav>
+          <div className={classes["user-settings-wrapper"]}>
+            <StandardButton
+              label="Change User Details"
+              function={turnOnModalUserDetailsHandler}
+            />
+            <Link to="/home">
+              <StandardButton label="Logout" function={logoutHandler} />
+            </Link>
+          </div>
+        </header>
+      )}
 
       {modalActive &&
         ReactDOM.createPortal(

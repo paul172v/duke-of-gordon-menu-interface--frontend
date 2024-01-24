@@ -110,3 +110,24 @@
   background-color: $color-secondary;
   color: $color-tertiary;
 }
+
+@media (max-width: 480px) {
+  .box {
+    padding-top: 60rem;
+    margin-top: 0rem;
+  }
+
+  .u-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .u-row button,
+  .submit-btn {
+    width: 85%;
+  }
+
+  .submit-btn {
+    margin-bottom: 3rem;
+  }
+}

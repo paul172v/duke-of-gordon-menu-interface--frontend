@@ -8,6 +8,12 @@ html {
   font-size: 62.5%;
 }
 
+@media (max-width: 480px) {
+  html {
+    font-size: 50%;
+  }
+}
+
 .body,
 link {
   font-family: "Cormorant Garamond", serif;

@@ -33,7 +33,7 @@ const MainMenuSection: React.FC<T> = (props) => {
     if (props.dataLoading)
       return (
         <div className={classes.box}>
-          <h2 className={classes.heading}>${props.section}</h2>
+          <h2 className={classes.heading}>{props.section}</h2>
           <RingLoader color="rgba(255, 255, 255, 1)" />
         </div>
       );
@@ -43,7 +43,7 @@ const MainMenuSection: React.FC<T> = (props) => {
     if (!props.menu && !props.dataLoading)
       return (
         <div className={classes.box}>
-          <h2 className={classes.heading}>${props.section}</h2>
+          <h2 className={classes.heading}>{props.section}</h2>
           <p
             className={classes.para}
           >{`${props.section} could not be loaded`}</p>
@@ -86,21 +86,29 @@ const MainMenuSection: React.FC<T> = (props) => {
 
             return (
               <div className={classes["grid-wrapper-items"]} key={item._id}>
-                <p className={classes["item-text"]}>{item.name}</p>
-                <p className={classes["item-text"]}>
+                <p className={classes["item-text"]} id={classes.name}>
+                  {item.name}
+                </p>
+                <p className={classes["item-text"]} id={classes.dietary}>
                   {dietary && dietary !== "none" ? `(${dietary})` : ""}
                 </p>
-                <p className={classes["item-text"]}>{item.description}</p>
-                <StandardButton
-                  label="Edit"
-                  function={() =>
-                    props.onTurnOnEditSectionItemModal(props.section, item)
-                  }
-                />
-                <StandardButton
-                  label="Delete"
-                  function={() => turnOnDeleteSectionItemModalHandler(item)}
-                />
+                <p className={classes["item-text"]} id={classes.description}>
+                  {item.description}
+                </p>
+                <div className={classes["btn-wrapper"]} id={classes.edit}>
+                  <StandardButton
+                    label="Edit"
+                    function={() =>
+                      props.onTurnOnEditSectionItemModal(props.section, item)
+                    }
+                  />
+                </div>
+                <div className={classes["btn-wrapper"]} id={classes.delete}>
+                  <StandardButton
+                    label="Delete"
+                    function={() => turnOnDeleteSectionItemModalHandler(item)}
+                  />
+                </div>
               </div>
             );
           })}

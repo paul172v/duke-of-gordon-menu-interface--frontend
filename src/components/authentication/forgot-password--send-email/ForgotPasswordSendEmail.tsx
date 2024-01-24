@@ -22,6 +22,7 @@ const ForgotPasswordSendEmail: React.FC<T> = (props) => {
   const [validationMessage, setValidationMessage] = useState(
     "Something went wrong!"
   );
+  const [emailSent, setEmailSent] = useState(false);
 
   //// Refs
   const inputEmail = useRef<HTMLInputElement>(null);
@@ -55,6 +56,8 @@ const ForgotPasswordSendEmail: React.FC<T> = (props) => {
       setFormInvalid(true);
       setValidationMessage("Must enter a valid email address");
     } else {
+      setEmailSent(true);
+
       await fetch("http://127.0.0.1:5000/api/v1/employees/forgot-password", {
         method: "POST",
         mode: "cors",
@@ -108,11 +111,17 @@ const ForgotPasswordSendEmail: React.FC<T> = (props) => {
             <p className={classes["error-message"]}>{validationMessage}</p>
           )}
           <div className={classes["buttons-wrapper"]}>
-            <input
-              type="submit"
-              value="Send Email"
-              id={classes["submit-button"]}
-            />
+            {!emailSent ? (
+              <input
+                type="submit"
+                value="Send Email"
+                id={classes["submit-button"]}
+              />
+            ) : (
+              <button id={classes["submit-button--sent"]}>
+                Sending Email...
+              </button>
+            )}
 
             <Link to="/home">
               <StandardButton label="Cancel" function={() => {}} />

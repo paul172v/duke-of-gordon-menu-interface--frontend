@@ -6,8 +6,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: 8rem;
-  min-height: 18rem;
   width: 108rem;
   max-width: 90vw;
   @include gradient-box;
@@ -23,10 +21,10 @@
   padding-bottom: 4rem;
   padding-top: 2rem;
   z-index: 9999;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
+}
+
+.box-mobile {
+  display: hidden;
 }
 
 .heading {
@@ -42,8 +40,38 @@
   font-size: 2rem;
 }
 
-.u-row {
+.name-wrapper {
+  display: flex;
+  font-size: 2rem;
+}
+
+.name {
+  color: $color-font-primary;
+  margin-right: 1rem;
+}
+
+.name:last-of-type {
+  margin-right: 0;
+}
+
+.name-faded {
+  color: $color-font-primary-faded;
+  margin-right: 1rem;
+}
+
+.divider {
+  margin: 0 1rem;
+  color: $color-font-primary;
+  font-size: 2rem;
+}
+
+.employee-details-wrapper {
   margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.buttons-wrapper {
   display: flex;
   align-items: center;
 }
@@ -106,4 +134,80 @@
   cursor: pointer;
   background-color: $color-secondary;
   color: $color-tertiary;
+}
+
+@media (max-width: 800px) {
+  .name,
+  .name-faded,
+  .para,
+  .para-faded,
+  .divider {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    position: absolute;
+    top: 0;
+    left: 5vw;
+    width: 90vw;
+    transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    margin-top: 8rem;
+
+    justify-content: flex-start;
+  }
+
+  .employee-details-wrapper {
+    width: 90%;
+    flex-direction: column;
+    border-bottom: 2px dotted $color-primary;
+    padding-bottom: 3rem;
+  }
+
+  .name,
+  .name-faded,
+  .para,
+  .para-faded {
+    margin-bottom: 2rem;
+  }
+  .name,
+  .name-faded {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-right: 1rem;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .buttons-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .button:first-of-type {
+    margin-bottom: 2rem;
+  }
+
+  .u-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .u-row button {
+    margin-bottom: 3rem;
+    width: 90%;
+  }
 }

@@ -9,6 +9,7 @@ import ForgotPasswordSendEmail from "./components/authentication/forgot-password
 import ForgotPasswordChangePassword from "./components/authentication/forgot-password--change-password/ForgotPasswordChangePassword";
 import SignUp from "./components/authentication/signup/SignUp";
 import MessageBox from "./components/message-box/MessageBox";
+import MenuSelection from "./components/menu-selection/MenuSelection";
 import MainMenu from "./pages/main-menu/MainMenu";
 import Header from "./components/header-components/header/Header";
 import HeaderManager from "./components/header-components/header-manager/HeaderManager";
@@ -56,7 +57,9 @@ function App() {
           path="/home"
           element={
             <div className={classes.background}>
-              <LoginSignUp />
+              <div className={classes.page}>
+                <LoginSignUp />
+              </div>
             </div>
           }
         />
@@ -64,11 +67,13 @@ function App() {
           path="/login"
           element={
             <div className={classes.background}>
-              <Login
-                onSetMessageBoxProps={messageBoxPropsHandler}
-                onSetEmail={setEmailHandler}
-                onSetRole={setRoleHandler}
-              />
+              <div className={classes.page}>
+                <Login
+                  onSetMessageBoxProps={messageBoxPropsHandler}
+                  onSetEmail={setEmailHandler}
+                  onSetRole={setRoleHandler}
+                />
+              </div>
             </div>
           }
         />
@@ -76,9 +81,11 @@ function App() {
           path="/forgot-password"
           element={
             <div className={classes.background}>
-              <ForgotPasswordSendEmail
-                onSetMessageBoxProps={messageBoxPropsHandler}
-              />
+              <div className={classes.page}>
+                <ForgotPasswordSendEmail
+                  onSetMessageBoxProps={messageBoxPropsHandler}
+                />
+              </div>
             </div>
           }
         />
@@ -86,9 +93,11 @@ function App() {
           path="/reset-password/:token"
           element={
             <div className={classes.background}>
-              <ForgotPasswordChangePassword
-                onSetMessageBoxProps={messageBoxPropsHandler}
-              />
+              <div className={classes.page}>
+                <ForgotPasswordChangePassword
+                  onSetMessageBoxProps={messageBoxPropsHandler}
+                />
+              </div>
             </div>
           }
         />
@@ -96,11 +105,13 @@ function App() {
           path="/sign-up"
           element={
             <div className={classes.background}>
-              <SignUp
-                onSetMessageBoxProps={messageBoxPropsHandler}
-                onSetEmail={setEmailHandler}
-                onSetRole={setRoleHandler}
-              />
+              <div className={classes.page}>
+                <SignUp
+                  onSetMessageBoxProps={messageBoxPropsHandler}
+                  onSetEmail={setEmailHandler}
+                  onSetRole={setRoleHandler}
+                />
+              </div>
             </div>
           }
         />
@@ -108,8 +119,42 @@ function App() {
           path="/alert"
           element={
             <div className={classes.background}>
-              <MessageBox {...messageBoxProps} />
+              <div className={classes.page}>
+                <MessageBox {...messageBoxProps} />
+              </div>
             </div>
+          }
+        />
+        <Route
+          path="/menu-selection"
+          element={
+            <React.Fragment>
+              {role === "Manager" ? (
+                <HeaderManager
+                  email={email}
+                  onSetEmail={setEmailHandler}
+                  onSetRole={setRoleHandler}
+                  onSetMessageBoxProps={messageBoxPropsHandler}
+                />
+              ) : (
+                ""
+              )}
+              {role === "Allowed" ? (
+                <Header
+                  email={email}
+                  onSetEmail={setEmailHandler}
+                  onSetRole={setRoleHandler}
+                  onSetMessageBoxProps={messageBoxPropsHandler}
+                />
+              ) : (
+                ""
+              )}
+              <div className={classes.background}>
+                <div className={classes.page}>
+                  <MenuSelection />
+                </div>
+              </div>
+            </React.Fragment>
           }
         />
         <Route
@@ -137,7 +182,9 @@ function App() {
                 ""
               )}
               <div className={classes.background}>
-                <MainMenu onSetMessageBoxProps={messageBoxPropsHandler} />
+                <div className={classes.page}>
+                  <MainMenu onSetMessageBoxProps={messageBoxPropsHandler} />
+                </div>
               </div>
             </React.Fragment>
           }

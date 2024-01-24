@@ -38,3 +38,10 @@
   background-color: $modal-background-color;
   z-index: 9900;
 }
+
+@media (max-width: 480px) {
+  .page {
+    max-height: 100svh;
+    overflow-y: scroll;
+  }
+}

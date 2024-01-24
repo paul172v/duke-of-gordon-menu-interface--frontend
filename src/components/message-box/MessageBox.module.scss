@@ -40,3 +40,19 @@
 .error-message {
   color: $color-font-error;
 }
+
+@media (max-width: 480px) {
+  a {
+    width: 100%;
+  }
+
+  a button {
+    width: 90%;
+    margin: 0 5% 3rem 5%;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+}

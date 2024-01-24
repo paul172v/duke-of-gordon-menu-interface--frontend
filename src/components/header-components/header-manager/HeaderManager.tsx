@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Link, useNavigate } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import classes from "./HeaderManager.module.scss";
 
@@ -45,6 +46,7 @@ interface User {
 const HeaderManager: React.FC<T> = (props) => {
   const [modalActive, setModalActive] = useState(false);
   const [modalType, setModalType] = useState<string | null>(null);
+  const [mobileHeaderActive, toggleMobileHeaderActive] = useState(false);
   ///// Employee Access State
   const [employeeId, setEmployeeId] = useState<string | null>(null);
   const [employeeFirstName, setEmployeeFirstName] = useState<string | null>(
@@ -80,6 +82,10 @@ const HeaderManager: React.FC<T> = (props) => {
     document.cookie = `jwt=null`;
     props.onSetEmail(null);
     props.onSetRole(null);
+  };
+
+  const toggleMobileHeaderActiveHandler = () => {
+    toggleMobileHeaderActive(!mobileHeaderActive);
   };
 
   const turnOnModalEmployeesAccessHandler = () => {
@@ -220,31 +226,84 @@ const HeaderManager: React.FC<T> = (props) => {
   return (
     <React.Fragment>
       <header className={classes.header}>
-        <nav className={classes.nav}>
-          <StandardButton
-            label={
-              isEmployeePending ? "⚠️ Manage Employees" : "Manage Employees"
-            }
-            function={turnOnModalEmployeesAccessHandler}
-          />
-        </nav>
-        <div className={classes["logo-wrapper"]}>
+        <div className={classes.margin}>
+          <nav className={classes.nav}>
+            <StandardButton
+              label={
+                isEmployeePending ? "⚠️ Manage Employees" : "Manage Employees"
+              }
+              function={turnOnModalEmployeesAccessHandler}
+            />
+          </nav>
+          <div className={classes["logo-wrapper"]}>
+            <img
+              className={classes.logo}
+              src="dog_logo.png"
+              alt="Duke of Gordon Hotel"
+            />
+          </div>
+          <div className={classes["user-settings-wrapper"]}>
+            <StandardButton
+              label="Change User Details"
+              function={turnOnModalUserDetailsHandler}
+            />
+            <Link to="/home">
+              <StandardButton label="Logout" function={logoutHandler} />
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {mobileHeaderActive === false && (
+        <header className={classes["header-mobile--closed"]}>
+          {isEmployeePending && (
+            <p className={classes["mobile-pending-alert"]}>
+              ⚠️ Employee access is pending
+            </p>
+          )}
+          <button
+            className={classes["btn-open-header-mobile"]}
+            onClick={toggleMobileHeaderActiveHandler}
+          >
+            <GiHamburgerMenu />
+          </button>
+        </header>
+      )}
+
+      {mobileHeaderActive === true && (
+        <header className={classes["header-mobile--open"]}>
+          <div className={classes["close-header-mobile-wrapper"]}>
+            <button
+              className={classes["btn-close-header-mobile"]}
+              onClick={toggleMobileHeaderActiveHandler}
+            >
+              X
+            </button>
+          </div>
           <img
-            className={classes.logo}
+            className={classes["logo-mobile"]}
             src="dog_logo.png"
             alt="Duke of Gordon Hotel"
           />
-        </div>
-        <div className={classes["user-settings-wrapper"]}>
-          <StandardButton
-            label="Change User Details"
-            function={turnOnModalUserDetailsHandler}
-          />
-          <Link to="/home">
-            <StandardButton label="Logout" function={logoutHandler} />
-          </Link>
-        </div>
-      </header>
+          <nav className={classes.nav}>
+            <StandardButton
+              label={
+                isEmployeePending ? "⚠️ Manage Employees" : "Manage Employees"
+              }
+              function={turnOnModalEmployeesAccessHandler}
+            />
+          </nav>
+          <div className={classes["user-settings-wrapper"]}>
+            <StandardButton
+              label="Change User Details"
+              function={turnOnModalUserDetailsHandler}
+            />
+            <Link to="/home">
+              <StandardButton label="Logout" function={logoutHandler} />
+            </Link>
+          </div>
+        </header>
+      )}
 
       {modalActive &&
         ReactDOM.createPortal(

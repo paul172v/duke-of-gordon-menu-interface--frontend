@@ -60,3 +60,13 @@
 .setting-false {
   color: red;
 }
+
+@media (max-width: 480px) {
+  .heading {
+    text-decoration: underline;
+  }
+
+  button {
+    width: 85%;
+  }
+}

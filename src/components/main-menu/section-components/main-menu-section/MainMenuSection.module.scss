@@ -74,3 +74,54 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
+
+.btn-wrapper {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .heading {
+    margin-bottom: -3rem;
+    text-decoration: underline;
+  }
+  .sub-heading {
+    display: none;
+  }
+
+  .grid-wrapper-items {
+    max-height: 100rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4rem 4rem auto 6rem 4rem;
+    gap: 1rem 0;
+    padding-bottom: 4rem;
+  }
+
+  .item-text {
+    text-align: center;
+  }
+
+  .btn-wrapper {
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .btn-wrapper button {
+    width: 90%;
+  }
+
+  #name {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .u-row {
+    margin-top: 4rem;
+    width: 100%;
+  }
+
+  .u-row button {
+    width: 90%;
+    font-size: 2.5rem;
+    padding: 2rem 0;
+  }
+}

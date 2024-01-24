@@ -16,6 +16,14 @@
   justify-content: space-between;
 }
 
+.header-mobile--closed {
+  display: none;
+}
+
+.header-mobile--open {
+  display: none;
+}
+
 .modal-background {
   position: fixed;
   top: 0;
@@ -43,4 +51,103 @@
   width: 40%;
   display: flex;
   justify-content: end;
+}
+
+@media (max-width: 800px) {
+  .header {
+    display: none;
+  }
+
+  .header-mobile--closed {
+    @include gradient-box--static;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .header-mobile--open {
+    @include gradient-box--static;
+  }
+
+  .close-header-mobile-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .mobile-pending-alert {
+    font-size: 2rem;
+    color: $color-font-primary;
+    font-style: normal;
+    margin-right: 2rem;
+  }
+
+  .btn-close-header-mobile,
+  .btn-open-header-mobile {
+    background-color: $color-primary;
+    color: $color-font-primary;
+    border: none;
+    height: 6rem;
+    width: 6rem;
+    font-size: 3rem;
+    margin: 2rem 3rem 2rem 0;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-close-header-mobile {
+    margin-top: 2rem;
+    margin-right: 2rem;
+  }
+
+  .header-mobile--open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    height: 100svh;
+
+    .logo-mobile {
+      width: 100%;
+      margin-top: 4rem;
+      background-color: white;
+      padding-top: 4rem;
+      margin-bottom: 4rem;
+    }
+
+    .nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 4rem;
+    }
+
+    .nav button {
+      width: 90%;
+    }
+
+    .user-settings-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .user-settings-wrapper button {
+      width: 90%;
+      margin-bottom: 4rem;
+    }
+  }
 }

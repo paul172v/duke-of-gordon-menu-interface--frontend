@@ -162,200 +162,256 @@ const EmployeesAccess: React.FC<T> = (props) => {
   {
     if (!dataLoading && props.employeesList.length > 0) {
       return (
-        <div className={classes.box}>
-          <h2 className={classes.heading}>Employees Access</h2>
-          {showEmployeesCategory === "Allowed" &&
-            props.employeesList.map(
-              (el) =>
-                el.role !== "Banned" &&
-                el.role !== "Pending" && (
-                  <div className={classes["u-row"]} key={el._id}>
-                    <p className={classes.para}>
-                      {el.firstName} {el.middleName} {el.lastName} | {el.email}{" "}
-                      |
-                      {el.role === "Manager" && (
-                        <span className={classes["u-blue"]}> {el.role}</span>
-                      )}
-                      {el.role === "Allowed" && (
-                        <span className={classes["u-green"]}> {el.role}</span>
-                      )}
-                    </p>
-                    <button
-                      className={classes.button}
-                      onClick={() =>
-                        props.onTurnOnModalEditEmployeesAccess(
-                          el._id,
-                          el.firstName,
-                          el.middleName || null,
-                          el.lastName,
-                          el.email,
-                          el.role
-                        )
-                      }
+        <div className={classes.page}>
+          <div className={classes.box}>
+            <h2 className={classes.heading}>Employees Access</h2>
+            {showEmployeesCategory === "Allowed" &&
+              props.employeesList.map(
+                (el) =>
+                  el.role !== "Banned" &&
+                  el.role !== "Pending" && (
+                    <div
+                      className={classes["employee-details-wrapper"]}
+                      key={el._id}
                     >
-                      Edit Access
-                    </button>
-                    <button
-                      className={classes.button}
-                      onClick={() =>
-                        props.onTurnOnModalDeleteEmployeesAccess(
-                          el._id,
-                          el.firstName,
-                          el.middleName || null,
-                          el.lastName,
-                          el.email,
-                          el.role
-                        )
-                      }
-                    >
-                      Delete
-                    </button>
-                  </div>
-                )
-            )}
+                      <div className={classes["name-wrapper"]}>
+                        <p className={classes.name}>{el.firstName}</p>
+                        {el.middleName && (
+                          <p className={classes.name}>
+                            {el.middleName}
+                            <span className={classes["u-gap"]} />
+                          </p>
+                        )}
+                        <p className={classes.name}>
+                          {el.lastName}
+                          <span className={classes["u-gap"]} />
+                        </p>
+                      </div>
+                      <p className={classes.divider}> | </p>
+                      <p className={classes.para}>{el.email}</p>{" "}
+                      <p className={classes.divider}> | </p>
+                      <p className={classes.para}>
+                        {el.role === "Manager" && (
+                          <span className={classes["u-blue"]}>{el.role}</span>
+                        )}
+                        {el.role === "Allowed" && (
+                          <span className={classes["u-green"]}>{el.role}</span>
+                        )}
+                      </p>
+                      <div className={classes["buttons-wrapper"]}>
+                        <button
+                          className={classes.button}
+                          onClick={() =>
+                            props.onTurnOnModalEditEmployeesAccess(
+                              el._id,
+                              el.firstName,
+                              el.middleName || null,
+                              el.lastName,
+                              el.email,
+                              el.role
+                            )
+                          }
+                        >
+                          Edit Access
+                        </button>
+                        <button
+                          className={classes.button}
+                          onClick={() =>
+                            props.onTurnOnModalDeleteEmployeesAccess(
+                              el._id,
+                              el.firstName,
+                              el.middleName || null,
+                              el.lastName,
+                              el.email,
+                              el.role
+                            )
+                          }
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  )
+              )}
 
-          {showEmployeesCategory === "Pending" &&
-            props.employeesList.map(
-              (el) =>
-                el.role === "Pending" && (
-                  <div className={classes["u-row"]} key={el._id}>
-                    <p
-                      className={
-                        el.role === "Pending"
-                          ? classes["para-faded"]
-                          : classes.para
-                      }
+            {showEmployeesCategory === "Pending" &&
+              props.employeesList.map(
+                (el) =>
+                  el.role === "Pending" && (
+                    <div
+                      className={classes["employee-details-wrapper"]}
+                      key={el._id}
                     >
-                      {el.firstName} {el.middleName} {el.lastName} | {el.email}{" "}
-                      |
-                      {el.role === "Pending" && (
-                        <span className={classes["u-yellow"]}> {el.role}</span>
-                      )}
-                    </p>
-                    <button
-                      className={classes.button}
-                      onClick={() =>
-                        props.onTurnOnModalEditEmployeesAccess(
-                          el._id,
-                          el.firstName,
-                          el.middleName || null,
-                          el.lastName,
-                          el.email,
-                          el.role
-                        )
-                      }
-                    >
-                      Edit Access
-                    </button>
-                    <button
-                      className={classes.button}
-                      onClick={() =>
-                        props.onTurnOnModalDeleteEmployeesAccess(
-                          el._id,
-                          el.firstName,
-                          el.middleName || null,
-                          el.lastName,
-                          el.email,
-                          el.role
-                        )
-                      }
-                    >
-                      Delete
-                    </button>
-                  </div>
-                )
-            )}
+                      <div className={classes["name-wrapper"]}>
+                        <p className={classes["name-faded"]}>{el.firstName}</p>
+                        {el.middleName && (
+                          <p className={classes["name-faded"]}>
+                            {el.middleName}
+                            <span className={classes["u-gap"]} />
+                          </p>
+                        )}
+                        <p className={classes["name-faded"]}>
+                          {el.lastName}
+                          <span className={classes["u-gap"]} />
+                        </p>
+                      </div>
+                      <p className={classes.divider}> | </p>
+                      <p className={classes["para-faded"]}>{el.email}</p>{" "}
+                      <p className={classes.divider}> | </p>
+                      <p className={classes.para}>
+                        <span className={classes["u-yellow"]}>{el.role}</span>
+                      </p>
+                      <div className={classes["buttons-wrapper"]}>
+                        <button
+                          className={classes.button}
+                          onClick={() =>
+                            props.onTurnOnModalEditEmployeesAccess(
+                              el._id,
+                              el.firstName,
+                              el.middleName || null,
+                              el.lastName,
+                              el.email,
+                              el.role
+                            )
+                          }
+                        >
+                          Edit Access
+                        </button>
+                        <button
+                          className={classes.button}
+                          onClick={() =>
+                            props.onTurnOnModalDeleteEmployeesAccess(
+                              el._id,
+                              el.firstName,
+                              el.middleName || null,
+                              el.lastName,
+                              el.email,
+                              el.role
+                            )
+                          }
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  )
+              )}
 
-          {showEmployeesCategory === "Banned" &&
-            props.employeesList.map(
-              (el) =>
-                el.role === "Banned" && (
-                  <div className={classes["u-row"]} key={el._id}>
-                    <p className={classes["para-faded"]}>
-                      {el.firstName} {el.middleName} {el.lastName} | {el.email}{" "}
-                      |
-                      {el.role === "Banned" && (
-                        <span className={classes["u-red"]}> {el.role}</span>
-                      )}
-                    </p>
-                    <button
-                      className={classes.button}
-                      onClick={() =>
-                        props.onTurnOnModalEditEmployeesAccess(
-                          el._id,
-                          el.firstName,
-                          el.middleName || null,
-                          el.lastName,
-                          el.email,
-                          el.role
-                        )
-                      }
+            {showEmployeesCategory === "Banned" &&
+              props.employeesList.map(
+                (el) =>
+                  el.role === "Banned" && (
+                    <div
+                      className={classes["employee-details-wrapper"]}
+                      key={el._id}
                     >
-                      Edit Access
-                    </button>
-                    <button
-                      className={classes.button}
-                      onClick={() =>
-                        props.onTurnOnModalDeleteEmployeesAccess(
-                          el._id,
-                          el.firstName,
-                          el.middleName || null,
-                          el.lastName,
-                          el.email,
-                          el.role
-                        )
-                      }
-                    >
-                      Delete
-                    </button>
-                  </div>
-                )
-            )}
-          <div className={classes["u-row"]}>
-            {showEmployeesCategory === "Allowed" && (
-              <>
-                <StandardButton
-                  label={
-                    props.isEmployeePending ? "⚠️ Show Pending" : "Show Pending"
-                  }
-                  function={() => setShowEmployeesCategoryHandler("Pending")}
-                />
-                <StandardButton
-                  label="Show Banned"
-                  function={() => setShowEmployeesCategoryHandler("Banned")}
-                />
-              </>
-            )}
+                      <div className={classes["name-wrapper"]}>
+                        <p className={classes["name-faded"]}>{el.firstName}</p>
+                        {el.middleName && (
+                          <p className={classes["name-faded"]}>
+                            {el.middleName}
+                            <span className={classes["u-gap"]} />
+                          </p>
+                        )}
+                        <p className={classes["name-faded"]}>
+                          {el.lastName}
+                          <span className={classes["u-gap"]} />
+                        </p>
+                      </div>
+                      <p className={classes.divider}> | </p>
+                      <p className={classes["para-faded"]}>{el.email}</p>{" "}
+                      <p className={classes.divider}> | </p>
+                      <p className={classes.para}>
+                        <span className={classes["u-red"]}>{el.role}</span>
+                      </p>
+                      <div className={classes["buttons-wrapper"]}>
+                        <button
+                          className={classes.button}
+                          onClick={() =>
+                            props.onTurnOnModalEditEmployeesAccess(
+                              el._id,
+                              el.firstName,
+                              el.middleName || null,
+                              el.lastName,
+                              el.email,
+                              el.role
+                            )
+                          }
+                        >
+                          Edit Access
+                        </button>
+                        <button
+                          className={classes.button}
+                          onClick={() =>
+                            props.onTurnOnModalDeleteEmployeesAccess(
+                              el._id,
+                              el.firstName,
+                              el.middleName || null,
+                              el.lastName,
+                              el.email,
+                              el.role
+                            )
+                          }
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  )
+              )}
 
-            {showEmployeesCategory === "Banned" && (
-              <>
-                <StandardButton
-                  label="Show Allowed"
-                  function={() => setShowEmployeesCategoryHandler("Allowed")}
-                />
-                <StandardButton
-                  label={
-                    props.isEmployeePending ? "⚠️ Show Pending" : "Show Pending"
-                  }
-                  function={() => setShowEmployeesCategoryHandler("Pending")}
-                />
-              </>
-            )}
+            <div className={classes["u-row"]}>
+              {showEmployeesCategory === "Allowed" && (
+                <>
+                  <StandardButton
+                    label={
+                      props.isEmployeePending
+                        ? "⚠️ Show Pending"
+                        : "Show Pending"
+                    }
+                    function={() => setShowEmployeesCategoryHandler("Pending")}
+                  />
+                  <StandardButton
+                    label="Show Banned"
+                    function={() => setShowEmployeesCategoryHandler("Banned")}
+                  />
+                </>
+              )}
 
-            {showEmployeesCategory === "Pending" && (
-              <>
-                <StandardButton
-                  label="Show Allowed"
-                  function={() => setShowEmployeesCategoryHandler("Allowed")}
-                />
-                <StandardButton
-                  label="Show Banned"
-                  function={() => setShowEmployeesCategoryHandler("Banned")}
-                />
-              </>
-            )}
-            <StandardButton label="Back" function={props.onTurnOffModal} />
+              {showEmployeesCategory === "Banned" && (
+                <>
+                  <StandardButton
+                    label="Show Allowed"
+                    function={() => setShowEmployeesCategoryHandler("Allowed")}
+                  />
+                  <StandardButton
+                    label={
+                      props.isEmployeePending
+                        ? "⚠️ Show Pending"
+                        : "Show Pending"
+                    }
+                    function={() => setShowEmployeesCategoryHandler("Pending")}
+                  />
+                </>
+              )}
+
+              {showEmployeesCategory === "Pending" && (
+                <>
+                  <StandardButton
+                    label="Show Allowed"
+                    function={() => setShowEmployeesCategoryHandler("Allowed")}
+                  />
+                  <StandardButton
+                    label="Show Banned"
+                    function={() => setShowEmployeesCategoryHandler("Banned")}
+                  />
+                </>
+              )}
+              <StandardButton label="Back" function={props.onTurnOffModal} />
+            </div>
           </div>
+
+          <div className={classes["box-mobile"]}></div>
         </div>
       );
     }
