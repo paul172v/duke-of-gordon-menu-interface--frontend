@@ -76,7 +76,7 @@ const AddMainMenuSectionItem: React.FC<T> = (props) => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/v1/main-menu/create-${props.section.toLocaleLowerCase()}-item`,
+        `https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/main-menu/create-${props.section.toLocaleLowerCase()}-item`,
         {
           method: "POST",
           mode: "cors",

@@ -58,20 +58,23 @@ const ForgotPasswordSendEmail: React.FC<T> = (props) => {
     } else {
       setEmailSent(true);
 
-      await fetch("http://127.0.0.1:5000/api/v1/employees/forgot-password", {
-        method: "POST",
-        mode: "cors",
-        cache: "no-cache",
-        credentials: "same-origin",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        redirect: "follow",
-        referrerPolicy: "no-referrer",
-        body: JSON.stringify({
-          email,
-        }),
-      })
+      await fetch(
+        "https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/employees/forgot-password",
+        {
+          method: "POST",
+          mode: "cors",
+          cache: "no-cache",
+          credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          redirect: "follow",
+          referrerPolicy: "no-referrer",
+          body: JSON.stringify({
+            email,
+          }),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           if (data.status === "fail") {

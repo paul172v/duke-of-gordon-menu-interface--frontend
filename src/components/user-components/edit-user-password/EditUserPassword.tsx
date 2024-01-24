@@ -71,7 +71,7 @@ const EditUserPassword: React.FC<T> = (props) => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/v1/employees/update-user-password",
+        "https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/employees/update-user-password",
         {
           method: "PATCH",
           mode: "cors",

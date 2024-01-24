@@ -69,7 +69,7 @@ const ForgotPasswordChangePassword: React.FC<T> = (props) => {
       );
     } else {
       await fetch(
-        `http://127.0.0.1:5000/api/v1/employees/reset-password/${token}`,
+        `https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/employees/reset-password/${token}`,
         {
           method: "POST",
           mode: "cors",

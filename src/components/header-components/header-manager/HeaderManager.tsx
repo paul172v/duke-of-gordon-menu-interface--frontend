@@ -174,7 +174,7 @@ const HeaderManager: React.FC<T> = (props) => {
   const initialGetEmployeesAccessListHandler = async () => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/v1/employees/get-employees-access-list",
+        "https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/employees/get-employees-access-list",
         {
           method: "GET",
           mode: "cors",

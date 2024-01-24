@@ -62,7 +62,7 @@ const UserDetails: React.FC<T> = (props) => {
     setDataLoading(true);
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/v1/employees/get-user",
+        "https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/employees/get-user",
         {
           method: "POST",
           mode: "cors",

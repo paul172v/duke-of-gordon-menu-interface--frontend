@@ -53,7 +53,7 @@ const ConfirmDeleteMainMenuSectionItem: React.FC<T> = (props) => {
 
   const deleteEmployeeHandler = async () => {
     await fetch(
-      `http://127.0.0.1:5000/api/v1/main-menu/delete-${props.section.toLocaleLowerCase()}-item/${
+      `https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/main-menu/delete-${props.section.toLocaleLowerCase()}-item/${
         props.selectedItemProperties!._id
       }`,
       {

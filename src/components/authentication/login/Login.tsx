@@ -56,21 +56,24 @@ const Login: React.FC<T> = (props) => {
       setFormInvalid(true);
       setValidationMessage("Must enter a password");
     } else {
-      await fetch("http://127.0.0.1:5000/api/v1/employees/login", {
-        method: "POST",
-        mode: "cors",
-        cache: "no-cache",
-        credentials: "same-origin",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        redirect: "follow",
-        referrerPolicy: "no-referrer",
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      })
+      await fetch(
+        "https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/employees/login",
+        {
+          method: "POST",
+          mode: "cors",
+          cache: "no-cache",
+          credentials: "same-origin",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          redirect: "follow",
+          referrerPolicy: "no-referrer",
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           if (data.status === "fail") {

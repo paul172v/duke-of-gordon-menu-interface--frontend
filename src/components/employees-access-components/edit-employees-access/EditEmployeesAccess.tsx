@@ -56,7 +56,7 @@ const EditEmployeesAccess: React.FC<T> = (props) => {
     const selectedRole = selectedRoleRef!.current!.value;
 
     await fetch(
-      "http://127.0.0.1:5000/api/v1/employees/update-employee-access",
+      "https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/employees/update-employee-access",
       {
         method: "PATCH",
         mode: "cors",

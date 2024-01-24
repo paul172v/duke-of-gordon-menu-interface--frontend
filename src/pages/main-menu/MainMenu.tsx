@@ -159,7 +159,7 @@ const MainMenu: React.FC<T> = (props) => {
       if (!initialFetchComplete) {
         try {
           const response = await fetch(
-            "http://127.0.0.1:5000/api/v1/main-menu/get-all-main-menu-data",
+            "https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/main-menu/get-all-main-menu-data",
             {
               method: "GET",
               mode: "cors",

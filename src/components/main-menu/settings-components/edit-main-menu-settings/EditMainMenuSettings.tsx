@@ -129,7 +129,7 @@ const EditMainMenuSettings: React.FC<T> = (props) => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:5000/api/v1/main-menu/update-main-menu-settings",
+        "https://duke-of-gordon-menu-interface-d83c02c0eebd.herokuapp.com/api/v1/main-menu/update-main-menu-settings",
         {
           method: "PATCH",
           mode: "cors",
