@@ -16,6 +16,9 @@ interface T {
     isError: boolean,
     destination: string
   ) => void;
+  isAuthorized: boolean;
+  onSetEmail: (email: string | null) => void;
+  onSetRole: (role: string | null) => void;
 }
 interface MenuSettings {
   menuActive: boolean;
@@ -110,6 +113,14 @@ const MainMenu: React.FC<T> = (props) => {
     setModalType(null);
   };
 
+  const nullifyEmailHandler = () => {
+    props.onSetEmail(null);
+  };
+
+  const nullifyRoleHandler = () => {
+    props.onSetRole(null);
+  };
+
   const setMenuSettingsHandler = (
     menuActive: boolean,
     date: string | null,
@@ -200,6 +211,19 @@ const MainMenu: React.FC<T> = (props) => {
 
     initialFetchHandler();
   }, [initialFetchComplete]); // Dependency array includes initialFetchComplete
+
+  if (props.isAuthorized === false) {
+    nullifyEmailHandler();
+    nullifyRoleHandler();
+    props.onSetMessageBoxProps(
+      "⚠️ Not logged in ⚠️",
+      "You are not logged in, please login before proceeding",
+      "Back to home",
+      true,
+      "/home"
+    );
+    navigate("/alert");
+  }
 
   return (
     <React.Fragment>

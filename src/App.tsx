@@ -151,7 +151,21 @@ function App() {
               )}
               <div className={classes.background}>
                 <div className={classes.page}>
-                  <MenuSelection />
+                  {role === "Manager" || role === "Allowed" ? (
+                    <MenuSelection
+                      isAuthorized={true}
+                      onSetMessageBoxProps={messageBoxPropsHandler}
+                      onSetEmail={setEmailHandler}
+                      onSetRole={setRoleHandler}
+                    />
+                  ) : (
+                    <MenuSelection
+                      isAuthorized={false}
+                      onSetMessageBoxProps={messageBoxPropsHandler}
+                      onSetEmail={setEmailHandler}
+                      onSetRole={setRoleHandler}
+                    />
+                  )}
                 </div>
               </div>
             </React.Fragment>
@@ -183,7 +197,21 @@ function App() {
               )}
               <div className={classes.background}>
                 <div className={classes.page}>
-                  <MainMenu onSetMessageBoxProps={messageBoxPropsHandler} />
+                  {role === "Manager" || role === "Allowed" ? (
+                    <MainMenu
+                      onSetMessageBoxProps={messageBoxPropsHandler}
+                      isAuthorized={true}
+                      onSetEmail={setEmailHandler}
+                      onSetRole={setRoleHandler}
+                    />
+                  ) : (
+                    <MainMenu
+                      onSetMessageBoxProps={messageBoxPropsHandler}
+                      isAuthorized={false}
+                      onSetEmail={setEmailHandler}
+                      onSetRole={setRoleHandler}
+                    />
+                  )}
                 </div>
               </div>
             </React.Fragment>
