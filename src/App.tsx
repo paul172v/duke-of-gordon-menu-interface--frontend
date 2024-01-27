@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import classes from "./App.module.scss";
 
-import LoginSignUp from "./pages/login-signup/LoginSignUp";
+import LoginSignUp from "./pages/login-sign-up/LoginSignUp";
 import Login from "./components/authentication/login/Login";
 import ForgotPasswordSendEmail from "./components/authentication/forgot-password--send-email/ForgotPasswordSendEmail";
 import ForgotPasswordChangePassword from "./components/authentication/forgot-password--change-password/ForgotPasswordChangePassword";
@@ -205,12 +205,13 @@ function App() {
                       onSetRole={setRoleHandler}
                     />
                   ) : (
-                    <MainMenu
-                      onSetMessageBoxProps={messageBoxPropsHandler}
-                      isAuthorized={false}
-                      onSetEmail={setEmailHandler}
-                      onSetRole={setRoleHandler}
-                    />
+                    <h1>Test!!!</h1>
+                    // <MainMenu
+                    //   onSetMessageBoxProps={messageBoxPropsHandler}
+                    //   isAuthorized={false}
+                    //   onSetEmail={setEmailHandler}
+                    //   onSetRole={setRoleHandler}
+                    // />
                   )}
                 </div>
               </div>
