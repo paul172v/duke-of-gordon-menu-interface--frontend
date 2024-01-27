@@ -197,7 +197,7 @@ function App() {
               )}
               <div className={classes.background}>
                 <div className={classes.page}>
-                  {role === "Manager" || role === "Allowed" ? (
+                  {role ? (
                     <MainMenu
                       onSetMessageBoxProps={messageBoxPropsHandler}
                       isAuthorized={true}
@@ -205,13 +205,12 @@ function App() {
                       onSetRole={setRoleHandler}
                     />
                   ) : (
-                    <h1>Test!!!</h1>
-                    // <MainMenu
-                    //   onSetMessageBoxProps={messageBoxPropsHandler}
-                    //   isAuthorized={false}
-                    //   onSetEmail={setEmailHandler}
-                    //   onSetRole={setRoleHandler}
-                    // />
+                    <MainMenu
+                      onSetMessageBoxProps={messageBoxPropsHandler}
+                      isAuthorized={false}
+                      onSetEmail={setEmailHandler}
+                      onSetRole={setRoleHandler}
+                    />
                   )}
                 </div>
               </div>
