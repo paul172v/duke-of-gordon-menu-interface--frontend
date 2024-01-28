@@ -172,6 +172,16 @@
 
 .btn-tooltip-mobile {
   display: none;
+  z-index: 9999;
+  color: $color-font-primary;
+  border: 1px solid $color-primary;
+  @include gradient-box-tooltip--static;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem 3rem;
 }
 
 @media (max-width: 800px) {
