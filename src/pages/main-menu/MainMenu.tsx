@@ -297,6 +297,8 @@ const MainMenu: React.FC<T> = (props) => {
         onSetMenuDesserts={setMenuDessertsHandler}
         menuItem={null}
       />
+
+      <div className={classes.background} />
     </React.Fragment>
   );
 };
