@@ -230,7 +230,7 @@ const MainMenu: React.FC<T> = (props) => {
     <React.Fragment>
       <div
         className={
-          props.isHeaderActive ? classes.page : classes["page-header-modal-fix"]
+          props.isHeaderActive ? classes["page-header-modal-fix"] : classes.page
         }
       >
         <MainMenuSettings
