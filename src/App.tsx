@@ -24,7 +24,7 @@ function App() {
   });
   const [email, setEmail] = useState<string | null>(null);
   const [role, setRole] = useState<string | null>(null);
-  const [isLockModalActive, setIsLockModalActive] = useState(false);
+  const [isLockModalActive, setIsLockModalActive] = useState(false); //// !!! Fixes a bug where on mobiles if the Employee Access or Mobile Nav were open you would keep scrolling to the height of the page in the background.
 
   //// Functions
   const messageBoxPropsHandler = (
