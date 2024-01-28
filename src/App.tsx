@@ -24,7 +24,7 @@ function App() {
   });
   const [email, setEmail] = useState<string | null>(null);
   const [role, setRole] = useState<string | null>(null);
-  const [isHeaderActive, setIsHeaderActive] = useState(false);
+  const [isLockModalActive, setIsLockModalActive] = useState(false);
 
   //// Functions
   const messageBoxPropsHandler = (
@@ -51,12 +51,12 @@ function App() {
     setRole(role);
   };
 
-  const turnOnIsHeaderActiveHandler = () => {
-    setIsHeaderActive(true);
+  const turnOnIsLockModalActiveHandler = () => {
+    setIsLockModalActive(true);
   };
 
-  const turnOffIsHeaderActiveHandler = () => {
-    setIsHeaderActive(false);
+  const turnOffIsLockModalActiveHandler = () => {
+    setIsLockModalActive(false);
   };
 
   return (
@@ -144,6 +144,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
+                  onTurnOnLockModal={turnOnIsLockModalActiveHandler}
+                  onTurnOffLockModal={turnOffIsLockModalActiveHandler}
                 />
               ) : (
                 ""
@@ -154,6 +156,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
+                  onTurnOnLockModal={turnOnIsLockModalActiveHandler}
+                  onTurnOffLockModal={turnOffIsLockModalActiveHandler}
                 />
               ) : (
                 ""
@@ -190,8 +194,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnHeaderIsActive={turnOnIsHeaderActiveHandler}
-                  onTurnOffHeaderIsActive={turnOffIsHeaderActiveHandler}
+                  onTurnOnLockModalIsActive={turnOnIsLockModalActiveHandler}
+                  onTurnOffLockModalIsActive={turnOffIsLockModalActiveHandler}
                 />
               ) : (
                 ""
@@ -202,8 +206,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnHeaderIsActive={turnOnIsHeaderActiveHandler}
-                  onTurnOffHeaderIsActive={turnOffIsHeaderActiveHandler}
+                  onTurnOnLockModalIsActive={turnOnIsLockModalActiveHandler}
+                  onTurnOffLockModalIsActive={turnOffIsLockModalActiveHandler}
                 />
               ) : (
                 ""
@@ -216,7 +220,7 @@ function App() {
                       isAuthorized={true}
                       onSetEmail={setEmailHandler}
                       onSetRole={setRoleHandler}
-                      isHeaderActive={isHeaderActive}
+                      isLockModalActive={isLockModalActive}
                     />
                   ) : (
                     <MainMenu
@@ -224,7 +228,7 @@ function App() {
                       isAuthorized={false}
                       onSetEmail={setEmailHandler}
                       onSetRole={setRoleHandler}
-                      isHeaderActive={isHeaderActive}
+                      isLockModalActive={isLockModalActive}
                     />
                   )}
                 </div>

@@ -40,6 +40,7 @@ interface T {
   checkedForPending: boolean;
   onSetIsEmployeePending: (boolean: boolean) => void;
   onSetCheckedForPending: (boolean: boolean) => void;
+  onTurnOffLockModal: (boolean: boolean) => void;
 }
 
 interface Employee {
@@ -407,7 +408,13 @@ const EmployeesAccess: React.FC<T> = (props) => {
                   />
                 </>
               )}
-              <StandardButton label="Back" function={props.onTurnOffModal} />
+              <StandardButton
+                label="Back"
+                function={() => {
+                  props.onTurnOffModal;
+                  props.onTurnOffLockModal;
+                }}
+              />
             </div>
           </div>
 
