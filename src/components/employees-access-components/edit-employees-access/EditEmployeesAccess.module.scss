@@ -98,3 +98,9 @@
   background-color: $color-secondary;
   color: $color-tertiary;
 }
+
+@media (max-width: 600px) {
+  .form {
+    padding: 0 2rem;
+  }
+}
