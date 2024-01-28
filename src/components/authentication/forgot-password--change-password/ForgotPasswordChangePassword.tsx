@@ -104,7 +104,7 @@ const ForgotPasswordChangePassword: React.FC<T> = (props) => {
               false,
               "login"
             );
-            navigate("/home");
+            navigate("/alert");
           }
         });
     }
