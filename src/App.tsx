@@ -24,6 +24,7 @@ function App() {
   });
   const [email, setEmail] = useState<string | null>(null);
   const [role, setRole] = useState<string | null>(null);
+  const [isHeaderActive, setIsHeaderActive] = useState(false);
 
   //// Functions
   const messageBoxPropsHandler = (
@@ -48,6 +49,14 @@ function App() {
 
   const setRoleHandler = (role: string | null) => {
     setRole(role);
+  };
+
+  const turnOnIsHeaderActiveHandler = () => {
+    setIsHeaderActive(true);
+  };
+
+  const turnOffIsHeaderActiveHandler = () => {
+    setIsHeaderActive(false);
   };
 
   return (
@@ -181,6 +190,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
+                  onTurnOnHeaderIsActive={turnOnIsHeaderActiveHandler}
+                  onTurnOffHeaderIsActive={turnOffIsHeaderActiveHandler}
                 />
               ) : (
                 ""
@@ -191,6 +202,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
+                  onTurnOnHeaderIsActive={turnOnIsHeaderActiveHandler}
+                  onTurnOffHeaderIsActive={turnOffIsHeaderActiveHandler}
                 />
               ) : (
                 ""
@@ -203,6 +216,7 @@ function App() {
                       isAuthorized={true}
                       onSetEmail={setEmailHandler}
                       onSetRole={setRoleHandler}
+                      isHeaderActive={isHeaderActive}
                     />
                   ) : (
                     <MainMenu
@@ -210,6 +224,7 @@ function App() {
                       isAuthorized={false}
                       onSetEmail={setEmailHandler}
                       onSetRole={setRoleHandler}
+                      isHeaderActive={isHeaderActive}
                     />
                   )}
                 </div>

@@ -19,6 +19,7 @@ interface T {
   isAuthorized: boolean;
   onSetEmail: (email: string | null) => void;
   onSetRole: (role: string | null) => void;
+  isHeaderActive: boolean;
 }
 interface MenuSettings {
   menuActive: boolean;
@@ -227,7 +228,11 @@ const MainMenu: React.FC<T> = (props) => {
 
   return (
     <React.Fragment>
-      <div className={classes.page}>
+      <div
+        className={
+          props.isHeaderActive ? classes.page : classes["page-header-modal-fix"]
+        }
+      >
         <MainMenuSettings
           dataLoading={dataLoading}
           onTurnOnEditMenuSettingsModal={turnOnEditMenuSettingsModalHandler}

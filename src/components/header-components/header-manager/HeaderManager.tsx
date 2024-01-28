@@ -24,6 +24,8 @@ interface T {
     isError: boolean,
     destination: string
   ) => void;
+  onTurnOnIsHeaderActive: (isHeaderActive: boolean) => void;
+  onTurnOffIsHeaderActive: (isHeaderActive: boolean) => void;
 }
 
 interface Employee {

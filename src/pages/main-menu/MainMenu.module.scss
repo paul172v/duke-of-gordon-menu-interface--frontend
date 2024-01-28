@@ -6,6 +6,11 @@
   padding-bottom: 8rem;
 }
 
+.page-header-modal-fix {
+  max-height: 100svh;
+  overflow-y: scroll;
+}
+
 .box {
   margin-top: 8rem;
   min-height: 18rem;
@@ -39,9 +44,3 @@
   background-color: $modal-background-color;
   z-index: 9900;
 }
-
-// @media (max-width: 480px) {
-//   .page {
-//     min-height: auto;
-//   }
-// }
