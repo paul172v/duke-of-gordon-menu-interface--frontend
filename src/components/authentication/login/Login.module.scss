@@ -170,6 +170,20 @@
   text-decoration: underline;
 }
 
+.btn-tooltip-mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .tooltip-trigger {
+    display: none;
+  }
+
+  .btn-tooltip-mobile {
+    display: block;
+  }
+}
+
 @media (max-width: 480px) {
   .box {
     min-height: auto;

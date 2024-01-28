@@ -51,6 +51,10 @@ const Login: React.FC<T> = (props) => {
     showTooltip && setShowTooltip(false);
   };
 
+  const toggleTooltipHandler = () => {
+    setShowTooltip(!showTooltip);
+  };
+
   const submitHandler = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -163,6 +167,12 @@ const Login: React.FC<T> = (props) => {
           >
             ?
           </p>
+          <button
+            className={classes["btn-tooltip-mobile"]}
+            onClick={toggleTooltipHandler}
+          >
+            ?
+          </button>
         </div>
         <div className={classes["form-wrapper"]}>
           <form className={classes.form} onSubmit={submitHandler}>
