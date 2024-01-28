@@ -67,3 +67,11 @@
     rgba(28, 28, 28, 1)
   );
 }
+
+@mixin gradient-box-tooltip--static {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(67, 67, 67, 1),
+    rgba(8, 8, 8, 1)
+  );
+}

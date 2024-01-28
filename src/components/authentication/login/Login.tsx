@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import ReactDOM from "react-dom";
 import { Link, useNavigate } from "react-router-dom";
 
 import classes from "./Login.module.scss";
@@ -22,6 +23,7 @@ const Login: React.FC<T> = (props) => {
   const [validationMessage, setValidationMessage] = useState(
     "Something went wrong!"
   );
+  const [showTooltip, setShowTooltip] = useState(false);
 
   //// Refs
   const inputEmail = useRef<HTMLInputElement>(null);
@@ -39,6 +41,14 @@ const Login: React.FC<T> = (props) => {
     isError: boolean
   ) => {
     props.onSetMessageBoxProps(heading, message, label, isError, destination);
+  };
+
+  const turnOnTooltipHandler = () => {
+    !showTooltip && setShowTooltip(true);
+  };
+
+  const turnOffTooltipHandler = () => {
+    showTooltip && setShowTooltip(false);
   };
 
   const submitHandler = async (
@@ -140,40 +150,69 @@ const Login: React.FC<T> = (props) => {
   };
 
   return (
-    <div className={classes.box}>
-      <div className={classes["heading-wrapper"]}>
-        <h2 className={classes.heading}>Log In To Your Account</h2>
-      </div>
-      <div className={classes["form-wrapper"]}>
-        <form className={classes.form} onSubmit={submitHandler}>
-          <label className={classes.label} htmlFor="email">
-            Email Address
-          </label>
-          <input type="email" name="email" ref={inputEmail} />
-          <label className={classes.label} htmlFor="password">
-            Password
-          </label>
-          <input type="password" name="password" ref={inputPassword} />
-          {formInvalid && (
-            <p className={classes["error-message"]}>{validationMessage}</p>
-          )}
-          <div className={classes["buttons-wrapper"]}>
-            <input type="submit" value="Login" id={classes["submit-button"]} />
+    <React.Fragment>
+      <div className={classes.box}>
+        <div className={classes["heading-wrapper"]}>
+          <div></div>
+          <h2 className={classes.heading}>Log In To Your Account</h2>
 
-            <Link to="/home">
-              <StandardButton label="Cancel" function={() => {}} />
-            </Link>
-          </div>
-          <div className={classes["forgot-password-wrapper"]}>
-            <Link to="/forgot-password">
-              <button className={classes["forgot-password"]}>
-                Forgot Password?
-              </button>
-            </Link>
-          </div>
-        </form>
+          <p
+            className={classes["tooltip-trigger"]}
+            onMouseEnter={turnOnTooltipHandler}
+            onMouseLeave={turnOffTooltipHandler}
+          >
+            ?
+          </p>
+        </div>
+        <div className={classes["form-wrapper"]}>
+          <form className={classes.form} onSubmit={submitHandler}>
+            <label className={classes.label} htmlFor="email">
+              Email Address
+            </label>
+            <input type="email" name="email" ref={inputEmail} />
+            <label className={classes.label} htmlFor="password">
+              Password
+            </label>
+            <input type="password" name="password" ref={inputPassword} />
+            {formInvalid && (
+              <p className={classes["error-message"]}>{validationMessage}</p>
+            )}
+            <div className={classes["buttons-wrapper"]}>
+              <input
+                type="submit"
+                value="Login"
+                id={classes["submit-button"]}
+              />
+
+              <Link to="/home">
+                <StandardButton label="Cancel" function={() => {}} />
+              </Link>
+            </div>
+            <div className={classes["forgot-password-wrapper"]}>
+              <Link to="/forgot-password">
+                <button className={classes["forgot-password"]}>
+                  Forgot Password?
+                </button>
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+      {showTooltip &&
+        ReactDOM.createPortal(
+          <div className={classes["tooltip-wrapper"]}>
+            <p className={classes["tooltip-heading"]}>Email</p>
+            <p className={classes["tooltip-heading"]}>Password</p>
+
+            <p className={classes["tooltip-info"]}>manager@DoG.co.uk</p>
+            <p className={classes["tooltip-info"]}>aaa</p>
+
+            <p className={classes["tooltip-info"]}>employee@DoG.co.uk</p>
+            <p className={classes["tooltip-info"]}>aaa</p>
+          </div>,
+          document.getElementById("modal-root")!
+        )}
+    </React.Fragment>
   );
 };
 
