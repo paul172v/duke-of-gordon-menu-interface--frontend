@@ -186,16 +186,11 @@
     border: 1px solid $color-primary;
     @include gradient-box-tooltip--static;
     border-radius: 4px;
-    padding: 1rem 2rem;
     font-size: 2rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 1rem 3rem;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
     margin-right: 2rem;
   }
 
