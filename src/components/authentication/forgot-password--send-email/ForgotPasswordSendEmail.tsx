@@ -90,7 +90,7 @@ const ForgotPasswordSendEmail: React.FC<T> = (props) => {
           if (data.status === "success") {
             setMessageBoxPropsHandler(
               "📧 Token sent successfully 📧",
-              "Token has been sent, please follow the link in your email",
+              "Token has been sent, please follow the link in your email (Remember to check your spam folder)",
               false
             );
             navigate("/alert");

@@ -37,15 +37,11 @@ const ForgotPasswordChangePassword: React.FC<T> = (props) => {
   const setMessageBoxPropsHandler = (
     heading: string,
     message: string,
-    isError: boolean
+    label: string,
+    isError: boolean,
+    destination: string
   ) => {
-    props.onSetMessageBoxProps(
-      heading,
-      message,
-      "Return to Home",
-      isError,
-      "/home"
-    );
+    props.onSetMessageBoxProps(heading, message, label, isError, destination);
   };
 
   const submitHandler = async (
@@ -93,7 +89,9 @@ const ForgotPasswordChangePassword: React.FC<T> = (props) => {
             setMessageBoxPropsHandler(
               "⚠️ Something went wrong ⚠️",
               data.message,
-              true
+              "Return to Home",
+              true,
+              "/home"
             );
             navigate("/alert");
           }
@@ -102,9 +100,11 @@ const ForgotPasswordChangePassword: React.FC<T> = (props) => {
             setMessageBoxPropsHandler(
               "✅ Password changed ✅",
               "Your password has been successfully changed",
-              false
+              "Return to Login",
+              false,
+              "login"
             );
-            navigate("/alert");
+            navigate("/home");
           }
         });
     }
