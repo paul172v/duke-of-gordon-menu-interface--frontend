@@ -95,6 +95,15 @@ const ForgotPasswordSendEmail: React.FC<T> = (props) => {
             );
             navigate("/alert");
           }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          setMessageBoxPropsHandler(
+            "⚠️ Network error ⚠️",
+            "Please try again later.",
+            true
+          );
+          navigate("/alert");
         });
     }
   };
