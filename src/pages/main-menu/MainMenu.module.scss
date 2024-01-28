@@ -2,6 +2,7 @@
 @import "../../sass/mixins";
 
 .page {
+  height: auto;
   padding-bottom: 8rem;
 }
 
@@ -39,8 +40,8 @@
   z-index: 9900;
 }
 
-@media (max-width: 480px) {
-  .page {
-    min-height: 100svh;
-  }
-}
+// @media (max-width: 480px) {
+//   .page {
+//     min-height: auto;
+//   }
+// }
