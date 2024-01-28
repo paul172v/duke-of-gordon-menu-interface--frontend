@@ -114,3 +114,20 @@
     width: 90%;
   }
 }
+
+@media (max-width: 480px) {
+  .form {
+    width: 90%;
+  }
+
+  .select,
+  .input,
+  .textarea {
+    background-color: $color-primary;
+    color: $color-font-primary;
+    font-size: 1.8rem;
+    padding-left: 1rem;
+    grid-column: 2/3;
+    width: auto;
+  }
+}
