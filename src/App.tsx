@@ -144,8 +144,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnHidePage={turnOnHidePageContentHandler}
-                  onTurnOffHidePage={turnOffHidePageContentHandler}
+                  onTurnOnHidePageContent={turnOnHidePageContentHandler}
+                  onTurnOffHidePageContent={turnOffHidePageContentHandler}
                 />
               ) : (
                 ""
@@ -156,8 +156,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnHidePage={turnOnHidePageContentHandler}
-                  onTurnOffHidePage={turnOffHidePageContentHandler}
+                  onTurnOnHidePageContent={turnOnHidePageContentHandler}
+                  onTurnOffHidePageContent={turnOffHidePageContentHandler}
                 />
               ) : (
                 ""
@@ -194,8 +194,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnHidePage={turnOnHidePageContentHandler}
-                  onTurnOffHidePage={turnOffHidePageContentHandler}
+                  onTurnOnHidePageContent={turnOnHidePageContentHandler}
+                  onTurnOffHidePageContent={turnOffHidePageContentHandler}
                 />
               ) : (
                 ""
@@ -206,8 +206,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnHidePage={turnOnHidePageContentHandler}
-                  onTurnOffHidePage={turnOffHidePageContentHandler}
+                  onTurnOnHidePageContent={turnOnHidePageContentHandler}
+                  onTurnOffHidePageContent={turnOffHidePageContentHandler}
                 />
               ) : (
                 ""

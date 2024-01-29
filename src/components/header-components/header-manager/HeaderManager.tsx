@@ -24,8 +24,8 @@ interface T {
     isError: boolean,
     destination: string
   ) => void;
-  onTurnOnHidePage: () => void;
-  onTurnOffHidePage: () => void;
+  onTurnOnHidePageContent: () => void;
+  onTurnOffHidePageContent: () => void;
 }
 
 interface Employee {
@@ -87,7 +87,9 @@ const HeaderManager: React.FC<T> = (props) => {
   };
 
   const toggleMobileHeaderActiveHandler = () => {
-    mobileHeaderActive ? props.onTurnOffHidePage() : props.onTurnOnHidePage();
+    mobileHeaderActive
+      ? props.onTurnOffHidePageContent()
+      : props.onTurnOnHidePageContent();
     toggleMobileHeaderActive(!mobileHeaderActive);
   };
 
