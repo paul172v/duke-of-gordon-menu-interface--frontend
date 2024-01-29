@@ -103,3 +103,9 @@
   background-color: $color-secondary;
   color: $color-tertiary;
 }
+
+@media (max-width: 800px) {
+  .box {
+    margin-top: 0;
+  }
+}
