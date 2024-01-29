@@ -19,7 +19,7 @@ interface T {
   isAuthorized: boolean;
   onSetEmail: (email: string | null) => void;
   onSetRole: (role: string | null) => void;
-  isLockModalActive: boolean;
+  hidePageContent: boolean;
 }
 interface MenuSettings {
   menuActive: boolean;
@@ -228,62 +228,66 @@ const MainMenu: React.FC<T> = (props) => {
 
   return (
     <React.Fragment>
-      <div
-        className={
-          props.isLockModalActive
-            ? classes["page-header-modal-fix"]
-            : classes.page
-        }
-      >
-        <MainMenuSettings
-          dataLoading={dataLoading}
-          onTurnOnEditMenuSettingsModal={turnOnEditMenuSettingsModalHandler}
-          menuSettings={menuSettings}
-        />
-        <MainMenuSection
-          section="Starters"
-          dataLoading={dataLoading}
-          menu={menuStarters}
-          onTurnOnEditSectionItemModal={turnOnEditSectionItemModalHandler}
-          onTurnOnAddSectionItemModal={turnOnAddSectionItemModalHandler}
-          onTurnOnDeleteSectionItemModalHandler={
-            turnOnDeleteSectionItemModalHandler
-          }
-          onSetSelectedItemProperties={setSelectedItemPropertiesHandler}
-        />
-        <MainMenuSection
-          section="Intermediate"
-          dataLoading={dataLoading}
-          menu={menuIntermediate}
-          onTurnOnEditSectionItemModal={turnOnEditSectionItemModalHandler}
-          onTurnOnAddSectionItemModal={turnOnAddSectionItemModalHandler}
-          onTurnOnDeleteSectionItemModalHandler={
-            turnOnDeleteSectionItemModalHandler
-          }
-          onSetSelectedItemProperties={setSelectedItemPropertiesHandler}
-        />
-        <MainMenuSection
-          section="Mains"
-          dataLoading={dataLoading}
-          menu={menuMains}
-          onTurnOnEditSectionItemModal={turnOnEditSectionItemModalHandler}
-          onTurnOnAddSectionItemModal={turnOnAddSectionItemModalHandler}
-          onTurnOnDeleteSectionItemModalHandler={
-            turnOnDeleteSectionItemModalHandler
-          }
-          onSetSelectedItemProperties={setSelectedItemPropertiesHandler}
-        />
-        <MainMenuSection
-          section="Desserts"
-          dataLoading={dataLoading}
-          menu={menuDesserts}
-          onTurnOnEditSectionItemModal={turnOnEditSectionItemModalHandler}
-          onTurnOnAddSectionItemModal={turnOnAddSectionItemModalHandler}
-          onTurnOnDeleteSectionItemModalHandler={
-            turnOnDeleteSectionItemModalHandler
-          }
-          onSetSelectedItemProperties={setSelectedItemPropertiesHandler}
-        />
+      <div className={classes.page}>
+        {!props.hidePageContent && (
+          <MainMenuSettings
+            dataLoading={dataLoading}
+            onTurnOnEditMenuSettingsModal={turnOnEditMenuSettingsModalHandler}
+            menuSettings={menuSettings}
+          />
+        )}
+        {!props.hidePageContent && (
+          <MainMenuSection
+            section="Starters"
+            dataLoading={dataLoading}
+            menu={menuStarters}
+            onTurnOnEditSectionItemModal={turnOnEditSectionItemModalHandler}
+            onTurnOnAddSectionItemModal={turnOnAddSectionItemModalHandler}
+            onTurnOnDeleteSectionItemModalHandler={
+              turnOnDeleteSectionItemModalHandler
+            }
+            onSetSelectedItemProperties={setSelectedItemPropertiesHandler}
+          />
+        )}
+        {!props.hidePageContent && (
+          <MainMenuSection
+            section="Intermediate"
+            dataLoading={dataLoading}
+            menu={menuIntermediate}
+            onTurnOnEditSectionItemModal={turnOnEditSectionItemModalHandler}
+            onTurnOnAddSectionItemModal={turnOnAddSectionItemModalHandler}
+            onTurnOnDeleteSectionItemModalHandler={
+              turnOnDeleteSectionItemModalHandler
+            }
+            onSetSelectedItemProperties={setSelectedItemPropertiesHandler}
+          />
+        )}
+        {!props.hidePageContent && (
+          <MainMenuSection
+            section="Mains"
+            dataLoading={dataLoading}
+            menu={menuMains}
+            onTurnOnEditSectionItemModal={turnOnEditSectionItemModalHandler}
+            onTurnOnAddSectionItemModal={turnOnAddSectionItemModalHandler}
+            onTurnOnDeleteSectionItemModalHandler={
+              turnOnDeleteSectionItemModalHandler
+            }
+            onSetSelectedItemProperties={setSelectedItemPropertiesHandler}
+          />
+        )}
+        {!props.hidePageContent && (
+          <MainMenuSection
+            section="Desserts"
+            dataLoading={dataLoading}
+            menu={menuDesserts}
+            onTurnOnEditSectionItemModal={turnOnEditSectionItemModalHandler}
+            onTurnOnAddSectionItemModal={turnOnAddSectionItemModalHandler}
+            onTurnOnDeleteSectionItemModalHandler={
+              turnOnDeleteSectionItemModalHandler
+            }
+            onSetSelectedItemProperties={setSelectedItemPropertiesHandler}
+          />
+        )}
       </div>
 
       <ComponentModals

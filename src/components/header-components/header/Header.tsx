@@ -21,8 +21,8 @@ interface T {
     isError: boolean,
     destination: string
   ) => void;
-  onTurnOnLockModal: (isHeaderActive: boolean) => void;
-  onTurnOffLockModal: (isHeaderActive: boolean) => void;
+  onTurnOnHidePage: () => void;
+  onTurnOffHidePage: () => void;
 }
 
 interface User {
@@ -49,9 +49,8 @@ const Header: React.FC<T> = (props) => {
   };
 
   const toggleMobileHeaderActiveHandler = () => {
+    mobileHeaderActive ? props.onTurnOffHidePage() : props.onTurnOnHidePage();
     toggleMobileHeaderActive(!mobileHeaderActive);
-
-    mobileHeaderActive ? props.onTurnOffLockModal : props.onTurnOnLockModal;
   };
 
   const turnOnModalUserDetailsHandler = () => {

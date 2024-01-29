@@ -24,7 +24,7 @@ function App() {
   });
   const [email, setEmail] = useState<string | null>(null);
   const [role, setRole] = useState<string | null>(null);
-  const [isLockModalActive, setIsLockModalActive] = useState(false); //// !!! Fixes a bug where on mobiles if the Employee Access or Mobile Nav were open you would keep scrolling to the height of the page in the background.
+  const [hidePageContent, setHidePageContent] = useState(false); //// !!! Fixes a bug where on mobiles if the Employee Access or Mobile Nav were open you would keep scrolling to the height of the page in the background.
 
   //// Functions
   const messageBoxPropsHandler = (
@@ -51,12 +51,12 @@ function App() {
     setRole(role);
   };
 
-  const turnOnIsLockModalActiveHandler = () => {
-    setIsLockModalActive(true);
+  const turnOnHidePageContentHandler = () => {
+    setHidePageContent(true);
   };
 
-  const turnOffIsLockModalActiveHandler = () => {
-    setIsLockModalActive(false);
+  const turnOffHidePageContentHandler = () => {
+    setHidePageContent(false);
   };
 
   return (
@@ -144,8 +144,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnLockModal={turnOnIsLockModalActiveHandler}
-                  onTurnOffLockModal={turnOffIsLockModalActiveHandler}
+                  onTurnOnHidePage={turnOnHidePageContentHandler}
+                  onTurnOffHidePage={turnOffHidePageContentHandler}
                 />
               ) : (
                 ""
@@ -156,8 +156,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnLockModal={turnOnIsLockModalActiveHandler}
-                  onTurnOffLockModal={turnOffIsLockModalActiveHandler}
+                  onTurnOnHidePage={turnOnHidePageContentHandler}
+                  onTurnOffHidePage={turnOffHidePageContentHandler}
                 />
               ) : (
                 ""
@@ -194,8 +194,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnLockModalIsActive={turnOnIsLockModalActiveHandler}
-                  onTurnOffLockModalIsActive={turnOffIsLockModalActiveHandler}
+                  onTurnOnHidePage={turnOnHidePageContentHandler}
+                  onTurnOffHidePage={turnOffHidePageContentHandler}
                 />
               ) : (
                 ""
@@ -206,8 +206,8 @@ function App() {
                   onSetEmail={setEmailHandler}
                   onSetRole={setRoleHandler}
                   onSetMessageBoxProps={messageBoxPropsHandler}
-                  onTurnOnLockModalIsActive={turnOnIsLockModalActiveHandler}
-                  onTurnOffLockModalIsActive={turnOffIsLockModalActiveHandler}
+                  onTurnOnHidePage={turnOnHidePageContentHandler}
+                  onTurnOffHidePage={turnOffHidePageContentHandler}
                 />
               ) : (
                 ""
@@ -220,7 +220,7 @@ function App() {
                       isAuthorized={true}
                       onSetEmail={setEmailHandler}
                       onSetRole={setRoleHandler}
-                      isLockModalActive={isLockModalActive}
+                      hidePageContent={hidePageContent}
                     />
                   ) : (
                     <MainMenu
@@ -228,7 +228,7 @@ function App() {
                       isAuthorized={false}
                       onSetEmail={setEmailHandler}
                       onSetRole={setRoleHandler}
-                      isLockModalActive={isLockModalActive}
+                      hidePageContent={hidePageContent}
                     />
                   )}
                 </div>

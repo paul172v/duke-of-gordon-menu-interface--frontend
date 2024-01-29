@@ -24,8 +24,8 @@ interface T {
     isError: boolean,
     destination: string
   ) => void;
-  onTurnOnLockModal: (isHeaderActive: boolean) => void;
-  onTurnOffLockModal: (isHeaderActive: boolean) => void;
+  onTurnOnHidePage: () => void;
+  onTurnOffHidePage: () => void;
 }
 
 interface Employee {
@@ -87,13 +87,11 @@ const HeaderManager: React.FC<T> = (props) => {
   };
 
   const toggleMobileHeaderActiveHandler = () => {
+    mobileHeaderActive ? props.onTurnOffHidePage() : props.onTurnOnHidePage();
     toggleMobileHeaderActive(!mobileHeaderActive);
-
-    mobileHeaderActive ? props.onTurnOffLockModal : props.onTurnOnLockModal;
   };
 
   const turnOnModalEmployeesAccessHandler = () => {
-    props.onTurnOnLockModal;
     setModalActive(true);
     setModalType("EmployeesAccess");
   };
@@ -334,7 +332,6 @@ const HeaderManager: React.FC<T> = (props) => {
                 checkedForPending={checkedForPending}
                 onSetIsEmployeePending={setIsEmployeePending}
                 onSetCheckedForPending={setCheckedForPending}
-                onTurnOffLockModal={props.onTurnOffLockModal}
               />
             ) : (
               ""
